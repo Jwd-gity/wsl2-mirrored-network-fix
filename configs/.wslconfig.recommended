@@ -1,0 +1,20 @@
+# Recommended %UserProfile%\.wslconfig for WSL2 Mirrored Mode (WSL 3.x / Windows 11 24H2-25H2)
+# Note section placement:
+# - dnsTunneling, firewall, and autoProxy belong under [wsl2].
+# - hostAddressLoopback and autoMemoryReclaim belong under [experimental].
+
+[wsl2]
+nestedVirtualization=true
+ipv6=true
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+memory=14GB
+processors=8
+swap=8GB
+vmIdleTimeout=-1
+
+[experimental]
+autoMemoryReclaim=gradual
+hostAddressLoopback=true
