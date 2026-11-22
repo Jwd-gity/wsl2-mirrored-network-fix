@@ -98,3 +98,10 @@ grep -rn "ip_local_port_range" /etc/sysctl.conf /etc/sysctl.d/ /usr/lib/sysctl.d
 - [`configs/99-wsl-mirrored.conf`](configs/99-wsl-mirrored.conf)：Mirrored 模式安全的回环/转发内核参数模板
 - [`configs/99-wsl-network-hardening.conf`](configs/99-wsl-network-hardening.conf)：已移除 `ip_local_port_range` 冲突的安全 TCP 调优模板
 - [`COMMUNITY-POST-microsoft-WSL.md`](COMMUNITY-POST-microsoft-WSL.md)：社区分享文稿
+
+---
+
+## 六、 官方社区分享与从 NAT 迁移提醒
+
+- **Microsoft WSL 官方社区贴**：[`microsoft/WSL` Discussions #42327](https://github.com/microsoft/WSL/discussions/42327)
+- **从 NAT 迁移到 Mirrored 的附带避坑**：如果此前在 Linux `~/.gitconfig`、`.bashrc` 或工具配置中写死过 NAT 宿主机 IP 代理（如 `http://172.x.x.x:7890`），切换镜像模式（尤其是开启宿主 TUN）后建议清理这些旧代理变量；若仍需显式走本地代理可改用 `127.0.0.1:7890` 或直接依赖 TUN 透明代理。
